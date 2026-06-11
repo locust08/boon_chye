@@ -1,0 +1,65 @@
+---
+import { brand, services } from "../data/site";
+
+const whatsappHref = `https://wa.me/${brand.phone.replace(/\D/g, "")}`;
+const whatsappAltHref = `https://wa.me/${brand.phoneAlt.replace(/\D/g, "")}`;
+const footerContacts = [
+  { label: brand.phone, href: whatsappHref, copy: brand.phone, external: true },
+  { label: brand.phoneAlt, href: whatsappAltHref, copy: brand.phoneAlt, external: true },
+  { label: "03-56381676", href: "tel:0356381676", copy: "03-56381676" },
+  { label: brand.email, href: `mailto:${brand.email}`, copy: brand.email },
+];
+---
+<section class="footer-section padding-bottom">
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="footer-content-wrapper">
+      <div class="footer-top-content">
+        <div class="single-footer-link-wrapper">
+          <p class="footer-link-title">About Boon Chye</p>
+          <div class="footer-links-wrapper">
+            <a class="footer-link" href="/about">About Us</a>
+            <a class="footer-link" href="/gallery">Gallery / Projects</a>
+            <a class="footer-link" href="/contact">Contact Us</a>
+          </div>
+        </div>
+        <div class="single-footer-link-wrapper">
+          <p class="footer-link-title">Explore Services</p>
+          <div class="footer-links-wrapper">
+            {services.slice(0, 3).map((service) => <a class="footer-link" href={service.href}>{service.title}</a>)}
+          </div>
+        </div>
+        <div class="single-footer-link-wrapper">
+          <p class="footer-link-title">More Services</p>
+          <div class="footer-links-wrapper">
+            {services.slice(3).map((service) => <a class="footer-link" href={service.href}>{service.title}</a>)}
+          </div>
+        </div>
+        <div class="single-footer-link-wrapper">
+          <p class="footer-link-title">Contact</p>
+          <div class="footer-links-wrapper">
+            {footerContacts.map((contact) => (
+              <div class="footer-contact-row">
+                <a class="footer-link" href={contact.href} target={contact.external ? "_blank" : undefined} rel={contact.external ? "noopener" : undefined}>{contact.label}</a>
+                <button class="footer-copy-button" type="button" data-copy={contact.copy} aria-label={`Copy ${contact.label}`}>
+                  <svg class="footer-copy-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 8V5.5C8 4.1 9.1 3 10.5 3h8C19.9 3 21 4.1 21 5.5v8c0 1.4-1.1 2.5-2.5 2.5H16v2.5c0 1.4-1.1 2.5-2.5 2.5h-8C4.1 21 3 19.9 3 18.5v-8C3 9.1 4.1 8 5.5 8H8Zm2 0h3.5C14.9 8 16 9.1 16 10.5V14h2.5c.3 0 .5-.2.5-.5v-8c0-.3-.2-.5-.5-.5h-8c-.3 0-.5.2-.5.5V8Zm-4.5 2c-.3 0-.5.2-.5.5v8c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5v-8c0-.3-.2-.5-.5-.5h-8Z" fill="currentColor"/>
+                  </svg>
+                  <span class="footer-copy-label">Copied</span>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-content">
+        <a class="footer-logo-wrapper footer-brand-lockup w-inline-block" href="/">
+          <img alt={`${brand.shortName} logo`} class="footer-logo boon-footer-logo" loading="lazy" src={brand.logo} />
+          <span class="footer-brand-text">Boon Chye Renovation</span>
+        </a>
+        <div class="footer-right-content">
+          <p class="copyright-text">Copyright © 2026 {brand.name} ({brand.registration}). All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

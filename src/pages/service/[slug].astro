@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+import HeroSimple from "../../components/HeroSimple.astro";
+import { services } from "../../data/site";
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+<BaseLayout
+  title={service.title}
+  description={service.excerpt}
+  path={`/service/${service.slug}`}
+>
+  <HeroSimple label="service details" title={service.title} subtitle={service.excerpt} />
+
+  <section class="service-details-section section-padding">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="section-content-wrapper">
+        <div class="service-details-content-wrapper">
+          <div class="service-details-image-wrapper">
+            <img alt={`${service.title} by Boon Chye`} class="service-details-image" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" src={service.image} srcset={service.imageSet} />
+          </div>
+          <div class="service-rich-text w-richtext">
+            <h3>What This Covers</h3>
+            <p>{service.sourceSignal}</p>
+            <ul role="list">
+              {service.details.map((item) => <li>{item}</li>)}
+            </ul>
+            <h3>How Boon Chye Handles It</h3>
+            <p>Share the issue, property type, location and any photos. The relevant Boon Chye team can inspect, recommend repair or installation options, and provide a clear quotation before work begins.</p>
+            <h3>Why It Is In This Umbrella Site</h3>
+            <p>This service appeared across one or more of the nine source websites. It has been consolidated here to prevent duplicate pages and make the customer journey clearer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works-section section-padding">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="section-content-wrapper">
+        <div class="title-wrapper style-02" style="opacity:1">
+          <h2 class="section-title">Service Process</h2>
+          <p class="section-subtitle">The template process layout is preserved and adapted to this service family.</p>
+        </div>
+        <div class="how-it-works-content-wrapper" style="opacity:1">
+          <div class="how-it-works-content-left">
+            <div class="single-process"><div class="point-wrapper"><div class="circle-point"><img alt="Process step icon" class="point-icon" loading="lazy" src="/images/Group-1597884498-1.svg" /></div></div><div class="process-title-wrapper"><h4 class="process-title">Inspect</h4><p class="process-subtitle">Identify the cause, affected area and urgency before recommending the next step.</p></div></div>
+            <div class="single-process"><div class="point-wrapper"><div class="circle-point"><img alt="Process step icon" class="point-icon" loading="lazy" src="/images/Group-1597884498-1.svg" /></div></div><div class="process-title-wrapper"><h4 class="process-title">Quote</h4><p class="process-subtitle">Explain scope, materials, timing and cost so there are no hidden surprises.</p></div></div>
+            <div class="single-process"><div class="point-wrapper"><div class="circle-point"><img alt="Process step icon" class="point-icon" loading="lazy" src="/images/Group-1597884498-1.svg" /></div></div><div class="process-title-wrapper"><h4 class="process-title">Complete</h4><p class="process-subtitle">Carry out the work with the correct trade crew and provide after-sales support where applicable.</p></div></div>
+            <div class="border-line"></div>
+          </div>
+          <div class="process-image-wrapper">
+            <img alt={`${service.title} inspection`} class="process-image" loading="lazy" sizes="100vw" src="/images/male-builder-doing-thermal-insulation-roof-wooden-frame-house-by-polyurethane-foam.png" srcset="/images/male-builder-doing-thermal-insulation-roof-wooden-frame-house-by-polyurethane-foam-p-500.png 500w, /images/male-builder-doing-thermal-insulation-roof-wooden-frame-house-by-polyurethane-foam-p-800.png 800w, /images/male-builder-doing-thermal-insulation-roof-wooden-frame-house-by-polyurethane-foam-p-1080.png 1080w, /images/male-builder-doing-thermal-insulation-roof-wooden-frame-house-by-polyurethane-foam.png 1100w" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA title={`Need ${service.title.toLowerCase()} help?`} text="Call or WhatsApp Boon Chye with your property location and photos for inspection or quotation guidance." />
+</BaseLayout>
