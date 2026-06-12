@@ -78,10 +78,10 @@ export const services = [
       { title: "Seepage", text: "Flat roof or wet-area leaks.", image: "/images/gallery/generated/roof-waterproofing-04.webp" },
     ],
     repairMethods: [
-      { title: "Patch Repair", text: "For localised damage.", icon: "/images/image (3).png" },
-      { title: "Waterproofing", text: "Membrane or coating.", icon: "/images/image (2).png" },
-      { title: "PU Injection", text: "For seepage paths.", icon: "/images/image (1).png" },
-      { title: "Recoating", text: "Protective roof layer.", icon: "/images/image.png" },
+      { title: "Patch Repair", text: "For localised damage.", icon: "/images/service-icons/method-patch-repair.svg" },
+      { title: "Waterproofing", text: "Membrane or coating.", icon: "/images/service-icons/method-waterproofing.svg" },
+      { title: "PU Injection", text: "For seepage paths.", icon: "/images/service-icons/method-pu-injection.svg" },
+      { title: "Recoating", text: "Protective roof layer.", icon: "/images/service-icons/method-recoating.svg" },
     ],
     process: {
       subtitle: "A practical roof leak flow: find the source, explain the repair scope, then complete the work with the right waterproofing or roofing method.",
@@ -150,10 +150,10 @@ export const services = [
       { title: "Pump Issues", text: "Noisy or inconsistent supply.", image: "/images/gallery/generated/plumbing-water-pump-04.webp" },
     ],
     repairMethods: [
-      { title: "Leak Repair", text: "Fix affected pipe points.", icon: "/images/service-icons/colored-plumbing-water-pump.svg" },
-      { title: "Drain Cleaning", text: "Clear slow discharge.", icon: "/images/service-icons/colored-plumbing-water-pump.svg" },
-      { title: "Pump Service", text: "Repair or install pumps.", icon: "/images/service-icons/colored-plumbing-water-pump.svg" },
-      { title: "Tank Works", text: "Install or repair tanks.", icon: "/images/service-icons/colored-plumbing-water-pump.svg" },
+      { title: "Leak Repair", text: "Fix affected pipe points.", icon: "/images/service-icons/method-pipe-leak.svg" },
+      { title: "Drain Cleaning", text: "Clear slow discharge.", icon: "/images/service-icons/method-drain-cleaning.svg" },
+      { title: "Pump Service", text: "Repair or install pumps.", icon: "/images/service-icons/method-pump-service.svg" },
+      { title: "Tank Works", text: "Install or repair tanks.", icon: "/images/service-icons/method-tank-works.svg" },
     ],
     process: {
       subtitle: "A practical plumbing flow: identify the affected point, confirm the repair scope, then complete the work with the right parts or cleaning method.",
@@ -222,10 +222,10 @@ export const services = [
       { title: "Wiring Needs", text: "New or existing wiring.", image: "/images/gallery/generated/electrical-04.webp" },
     ],
     repairMethods: [
-      { title: "Point Repair", text: "Switches and plug points.", icon: "/images/service-icons/colored-electrical.svg" },
-      { title: "Lighting", text: "Install or replace fixtures.", icon: "/images/service-icons/colored-electrical.svg" },
-      { title: "Fuse Box", text: "Inspect and repair.", icon: "/images/service-icons/colored-electrical.svg" },
-      { title: "Wiring", text: "Safe wiring support.", icon: "/images/service-icons/colored-electrical.svg" },
+      { title: "Point Repair", text: "Switches and plug points.", icon: "/images/service-icons/method-point-repair.svg" },
+      { title: "Lighting", text: "Install or replace fixtures.", icon: "/images/service-icons/method-lighting.svg" },
+      { title: "Fuse Box", text: "Inspect and repair.", icon: "/images/service-icons/method-fuse-box.svg" },
+      { title: "Wiring", text: "Safe wiring support.", icon: "/images/service-icons/method-wiring.svg" },
     ],
     process: {
       subtitle: "A practical electrical flow: check the issue, confirm the safe work scope, then complete and test the installation or repair.",
@@ -294,10 +294,10 @@ export const services = [
       { title: "Extensions", text: "Kitchen, rear or porch.", image: "/images/gallery/generated/renovation-04.webp" },
     ],
     repairMethods: [
-      { title: "Site Planning", text: "Scope and sequence.", icon: "/images/service-icons/colored-renovation.svg" },
-      { title: "Trade Works", text: "Plumbing and electrical.", icon: "/images/service-icons/colored-renovation.svg" },
-      { title: "Finishing", text: "Paint, ceiling and glass.", icon: "/images/service-icons/colored-renovation.svg" },
-      { title: "Extensions", text: "Planned build-out works.", icon: "/images/service-icons/colored-renovation.svg" },
+      { title: "Site Planning", text: "Scope and sequence.", icon: "/images/service-icons/method-site-planning.svg" },
+      { title: "Trade Works", text: "Plumbing and electrical.", icon: "/images/service-icons/method-trade-works.svg" },
+      { title: "Finishing", text: "Paint, ceiling and glass.", icon: "/images/service-icons/method-finishing.svg" },
+      { title: "Extensions", text: "Planned build-out works.", icon: "/images/service-icons/method-extensions.svg" },
     ],
     process: {
       subtitle: "A practical renovation flow: define the scope, confirm materials and sequence, then complete the work with the relevant trade teams.",
@@ -366,10 +366,10 @@ export const services = [
       { title: "Bad Smells", text: "Possible blockage issue.", image: "/images/gallery/generated/sewerage-drainage-04.webp" },
     ],
     repairMethods: [
-      { title: "Drain Clearing", text: "Clear blockage points.", icon: "/images/service-icons/colored-sewerage-drainage.svg" },
-      { title: "Water Jetting", text: "High-pressure cleaning.", icon: "/images/service-icons/colored-sewerage-drainage.svg" },
-      { title: "CCTV Check", text: "Inspect the line.", icon: "/images/service-icons/colored-sewerage-drainage.svg" },
-      { title: "Desludging", text: "Tank and STP support.", icon: "/images/service-icons/colored-sewerage-drainage.svg" },
+      { title: "Drain Clearing", text: "Clear blockage points.", icon: "/images/service-icons/method-drain-clearing.svg" },
+      { title: "Water Jetting", text: "High-pressure cleaning.", icon: "/images/service-icons/method-water-jetting.svg" },
+      { title: "CCTV Check", text: "Inspect the line.", icon: "/images/service-icons/method-cctv-check.svg" },
+      { title: "Desludging", text: "Tank and STP support.", icon: "/images/service-icons/method-desludging.svg" },
     ],
     process: {
       subtitle: "A practical sewerage and drainage flow: assess the blockage, confirm the clearing method, then clean or inspect the line.",
