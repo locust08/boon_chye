@@ -51,6 +51,9 @@ const canonical = new URL(path, brand.canonicalBase).toString();
           ".about-cta",
           ".single-service",
           ".single-choose-us-card",
+          ".gallery-category-grid",
+          ".gallery-featured-grid",
+          ".gallery-workflow-grid",
           ".project-gallery",
           ".metrics",
           ".how-it-works-content-wrapper",
@@ -89,6 +92,46 @@ const canonical = new URL(path, brand.canonicalBase).toString();
         }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
 
         elements.forEach((element) => observer.observe(element));
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const counters = [...document.querySelectorAll(".js-count[data-count-target]")];
+        if (!counters.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const animateCounter = (counter) => {
+          if (counter.dataset.counted === "true") return;
+          counter.dataset.counted = "true";
+
+          const target = Number(counter.dataset.countTarget || 0);
+          const suffix = counter.dataset.countSuffix || "";
+          const duration = 900;
+          const startTime = performance.now();
+
+          const tick = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = `${Math.round(target * eased)}${suffix}`;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+
+          requestAnimationFrame(tick);
+        };
+
+        if (!("IntersectionObserver" in window)) {
+          counters.forEach(animateCounter);
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          });
+        }, { rootMargin: "0px 0px -10% 0px", threshold: 0.4 });
+
+        counters.forEach((counter) => observer.observe(counter));
       })();
     </script>
     <script is:inline>
