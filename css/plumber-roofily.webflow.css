@@ -3583,7 +3583,7 @@ strong {
   transition: all .3s ease-in-out;
 }
 
-.single-nav:hover, .single-nav.w--current {
+.single-nav:hover, .single-nav.w--current, .single-nav.nav-link-active {
   color: var(--theme-color);
 }
 
@@ -3651,7 +3651,7 @@ strong {
   align-items: center;
 }
 
-.service-dropdown-toggle.w--current {
+.service-dropdown-toggle.w--current, .service-dropdown-toggle.nav-link-active {
   color: var(--theme-color);
 }
 

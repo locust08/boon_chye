@@ -1,7 +1,10 @@
 ---
 import { brand, navItems, services } from "../data/site";
 const current = Astro.url.pathname.replace(/\/$/, "") || "/";
-const isCurrent = (href: string) => href === "/" ? current === "/" : current.startsWith(href);
+const isCurrent = (href: string) => {
+  if (href === "/") return current === "/";
+  return current === href || current.startsWith(`${href}/`);
+};
 ---
 <div class="header w-nav" data-animation="default" data-collapse="medium" data-doc-height="1" data-duration="400" data-easing="ease" data-easing2="ease" data-w-id="ede5c3aa-da71-d6d7-55e7-0dc71b5d6950" role="banner">
   <div class="container w-container">
@@ -16,7 +19,11 @@ const isCurrent = (href: string) => href === "/" ? current === "/" : current.sta
               {navItems.map((item) => (
                 item.href === "/service" ? (
                   <div class="services-pages w-dropdown" data-delay="0" data-hover="true">
-                    <div class:list={["dropdown-toggle service-dropdown-toggle", "w-dropdown-toggle", { "w--current": isCurrent(item.href) }]} onclick="window.location.href='/service'">
+                    <div
+                      aria-current={isCurrent(item.href) ? "page" : undefined}
+                      class:list={["dropdown-toggle service-dropdown-toggle", "w-dropdown-toggle", { "w--current": isCurrent(item.href), "nav-link-active": isCurrent(item.href) }]}
+                      onclick="window.location.href='/service'"
+                    >
                       <div>Services</div>
                       <div class="dropdown-icon w-icon-dropdown-toggle"></div>
                     </div>
@@ -34,7 +41,13 @@ const isCurrent = (href: string) => href === "/" ? current === "/" : current.sta
                   </div>
                 ) : (
                   <div class="single-nav-wrapper">
-                    <a class:list={["single-nav", "w-nav-link", { "w--current": isCurrent(item.href) }]} href={item.href}>{item.label === "Contact" ? "Contact Us" : item.label}</a>
+                    <a
+                      aria-current={isCurrent(item.href) ? "page" : undefined}
+                      class:list={["single-nav", "w-nav-link", { "w--current": isCurrent(item.href), "nav-link-active": isCurrent(item.href) }]}
+                      href={item.href}
+                    >
+                      {item.label === "Contact" ? "Contact Us" : item.label}
+                    </a>
                   </div>
                 )
               ))}
